@@ -1,17 +1,15 @@
 extern crate askama;
-
 use askama::Template;
-
 #[derive(Template)] // This will generate the code...
 
-#[template(path = "hello.html")] // relative to teamplstes dir in cratre root
+#[template(path = "hello.html")] // relative to templates dir in crate root
 
 struct HelloTemplate<'a> { //name can be anythiung
-	name: &'a str, //firld name shiould mastch vbariable name
+	name: &'a str, //field name should match variable name
 }
 
 fn main() {
-	let hello = HelloTemplate { name: "worldasd" };
+	let hello = HelloTemplate { name: "DSDSDSworldasd" };
 	
 	println!("Content-type: text/html\n\n");
 	println!("{}", hello.render().unwrap());
