@@ -2,7 +2,8 @@ extern crate askama;
 use askama::Template;
 #[derive(Template)] // This will generate the code...
 
-#[template(path = "hello.html")] // relative to templates dir in crate root
+// this decorates the struct
+#[template(path = "hello.html")] 
 
 struct HelloTemplate<'a> { //name can be anythiung
 	name: &'a str, //field name should match variable name
