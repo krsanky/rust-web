@@ -3,3 +3,4 @@ main
 **/*.rs.bk
 Cargo.lock
 tera/
+wiki/

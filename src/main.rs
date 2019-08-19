@@ -1,18 +1,17 @@
+use rust_web::http_headers;
 extern crate askama;
 use askama::Template;
-#[derive(Template)] // This will generate the code...
 
-// this decorates the struct
-#[template(path = "hello.html")] 
-
-struct HelloTemplate<'a> { //name can be anythiung
-	name: &'a str, //field name should match variable name
+#[derive(Template)]
+#[template(path = "main.html")]
+struct MainPage<'a> {
+    name: &'a str,
 }
 
 fn main() {
-	let hello = HelloTemplate { name: "DSDSDSworldasd" };
-	
-	println!("Content-type: text/html\n\n");
-	println!("{}", hello.render().unwrap());
-}
+    //let hello = HelloTemplate { name: "DSDSDSworldasd" };
+    let main = MainPage { name: "*-name--" };
 
+    http_headers();
+    print!("{}", main.render().unwrap());
+}
