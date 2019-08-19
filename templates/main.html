@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>Main</h1>
+name: {{ name }}
+{#% call super() %#}
+
+<form method=post>
+<input type=text name="var1"></input>
+<button type=submit>submit</button>
+</form>
+
+
+{% if qs.is_some() %}
+some:{{ qs.unwrap() }}
+{% else %}
+NONE
+{% endif %}
+
+
+{% endblock %}
