@@ -2,7 +2,12 @@
 
 {% block main %}
 <h1>Main</h1>
-name: {{ name }}
+<ul>
+<li>name: {{ name }}</li>
+<li>CONTENT_LENGTH:{{ cl }}</li>
+<li>REQUEST_METHOD:{{ rm }}</li>
+</ul>
+
 {#% call super() %#}
 
 <form method=post>

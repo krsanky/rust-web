@@ -1,27 +1,48 @@
 use std::env;
-
 use rust_web::http_headers;
 extern crate askama;
 use askama::Template;
 
-#[derive(Template)]
-#[template(path = "main.html")]
-struct MainPage<'a> {
-	// the mutability of a struct is in its binding (all or nothing)
+#[derive(Template)] 
+#[template(path = "test.html")]
+struct TestPage<'a> {
     name: &'a str,
 	qs: Option<&'a str>,
+	cl: &'a str,
+	rm: &'a str,
 }
 
 fn main() {
 	//l = fread(buf, 1, CL, stdin);
     
-    let mut main_page = MainPage { name: "*-name-#", qs: Some("asd"), };
-	main_page.qs = None; 
+    let mut test_page = TestPage { 
+		name: "*-name-#", 
+		qs: None,
+		cl: "",
+		rm: "",
+	};
 
-	let _qs = "QUERY_STRING";
-	//main_page.qs = env::var(qs).unwrap_or("ERROR".to_string()); 
-	//main_page.qs = env::var(qs);
+	let cl = "CONTENT_LENGTH";
+	let cl = env::var(cl);
+	test_page.cl = match cl {
+		Ok(ref v) => v,
+		Err(_) => "None",
+	};
+
+	let rm = "REQUEST_METHOD";
+	let rm = env::var(rm);
+	test_page.rm = match rm {
+		Ok(ref v) => v,
+		Err(_) => "None",
+	};
+
+	let qs = "QUERY_STRING";
+	let qs = env::var(qs);
+	test_page.qs = match qs {
+		Ok(ref v) => Some(v),
+		Err(_) => None,
+	};
 
     http_headers();
-    print!("{}", main_page.render().unwrap());
+    print!("{}", test_page.render().unwrap());
 }
