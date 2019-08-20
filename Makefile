@@ -1,13 +1,19 @@
 all: deploy-web
 
-target/release/rust_web:
+BIN="target/release/webpage"
+
+$(BIN):
 	cargo build --release
 
-deploy-web: target/release/rust_web
-	cp target/release/rust_web /var/www/htdocs/index.cgi
+deploy-web: $(BIN) 
+	cp $(BIN) /var/www/htdocs/index.cgi
 
 clean:
 	cargo clean
 
-.PHONY: all clean deploy-cgi target/release/rust_web
+test:
+	RUSTDOC=/usr/local/bin/rustdoc cargo test
+	#RUSTDOCFLAGS='--sysroot /usr/local' cargo test
+
+.PHONY: all clean test deploy-cgi $(BIN)
 

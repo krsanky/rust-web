@@ -5,3 +5,4 @@ Cargo.lock
 tera/
 wiki/
 tmp/
+askama/
