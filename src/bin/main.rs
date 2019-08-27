@@ -4,8 +4,8 @@ extern crate askama;
 use askama::Template;
 
 #[derive(Template)] 
-#[template(path = "test.html")]
-struct TestPage<'a> {
+#[template(path = "main.html")]
+struct MainPage<'a> {
     name: &'a str,
 	qs: Option<&'a str>,
 	cl: &'a str,
@@ -15,7 +15,7 @@ struct TestPage<'a> {
 fn main() {
 	//l = fread(buf, 1, CL, stdin);
     
-    let mut test_page = TestPage { 
+    let mut test_page = MainPage { 
 		name: "*-name-#", 
 		qs: None,
 		cl: "",

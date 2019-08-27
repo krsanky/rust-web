@@ -1,36 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8"></meta>
-<title>{% block title %}my title{% endblock %}</title>
-</head>
-
-<body data-id="274" >
-<style>
+<!DOCTYPE html><html ><head ><meta charset="utf-8" ></meta></head><body data-id="274" ><style>
 body { 
     max-width: 800px;
     width: 80%;
 }
 body,input,textarea {
-    font-family: Iosevka, monospace;
-    background: #191e2a;
-    color: #21EF9F;
+       font-family: Iosevka, monospace;
+       background: #191e2a;
+       color: #21EF9F;
 }
 a { color: aqua; }
 a:visited { color: darkcyan; }
-</style>
-
-<h2>{% block ptitle %}<a href="/">Bashmarks, but for CMD.EXE</a>{% endblock %}</h2>
-<div id="tag" >Tag: <a href="/view/bytag/REFERENCE" >REFERENCE</a></div><a href="/admin/view/274" >Edit</a>
-
-{% block main %}<h3>--base content--</h3>{% endblock %}
-
-<div id="notes" >
-<h2>Jumping between projects in <code>CMD.EXE</code></h2>
+</style><h2 ><a href="/" >Bashmarks, but for CMD.EXE</a></h2><div id="tag" >Tag: <a href="/view/bytag/REFERENCE" >REFERENCE</a></div><a href="/admin/view/274" >Edit</a><div id="notes" ><h2>Jumping between projects in <code>CMD.EXE</code></h2>
 
 
 <p>So, as documented <a href="https://idea.junglecoder.com/view/idea/266">here</a>, I often find myself at a shell, wanting to bounce around without having to CD all over the place.</p>
-{#
+
 <p>Turns out that doing that in CMD.exe is both easier, and harder than doing it in bash. Easier because I didn't end up busting out regular expressions and self-modifying scripts, harder because I ended up writing a seperate program for handling the <a href="https://idea.junglecoder.com/view/idea/275">jumplist database</a>, so that I could avoid doing that part of the file management in batch files, because I wasn't about to learn that much batch.</p>
 
 <p>To get set up, build this <a href="https://idea.junglecoder.com/view/idea/275">go program</a> using the standard Go toolchain (I won't explain that in detail here), and install the resulting executable in your %PATH%.</p>
@@ -38,7 +22,7 @@ a:visited { color: darkcyan; }
 <p>Once you have that program (or an equivalent) installed on your path, you'll want to add create the following batch files on your path as well.</p>
 
 <p>This will allow you to type things into CMD.exe like "<code>jadd MyProject</code>", and then, from another directory, type "<code>j MyProject</code>" to get back to the folder you marked.</p>
-#}
+
 <h3>Usage:</h3>
 
 
@@ -100,8 +84,4 @@ CD "%CD_TARGET%"
 SET CD_TARGET=
 </code></pre>
 
-<hr />
-</div><!-- notes -->
-
-</body>
-</html>
+<hr /></div></body></html>
