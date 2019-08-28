@@ -1,6 +1,5 @@
 use std::env;
 use webpage::http_headers;
-extern crate askama;
 use askama::Template;
 
 #[derive(Template)] 
